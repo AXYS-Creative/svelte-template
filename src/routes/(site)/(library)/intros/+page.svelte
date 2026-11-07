@@ -14,6 +14,7 @@
 	import {
 		heroLoadMarqueeSlideProps,
 		heroLoadSlideProps,
+		heroLoadSpreadProps,
 		loaderGridProps,
 		loaderLogoProps,
 		loaderProps
@@ -23,6 +24,7 @@
 	import LibrarySection from '$lib/library/library-section.svelte';
 	import HeroLoadMarqueeSlide from '$lib/sections/hero-load-marquee-slide.svelte';
 	import HeroLoadSlide from '$lib/sections/hero-load-slide.svelte';
+	import HeroLoadSpread from '$lib/sections/hero-load-spread.svelte';
 	import HeroSimple from '$lib/sections/hero-simple.svelte';
 	import { navEntry } from '$lib/utils/nav';
 
@@ -164,6 +166,23 @@
 				words={['Your', ['story', 'journey', 'future', 'healing', 'growth'], 'starts here']}
 				size="clamp(56px, 11vw, 140px)"
 				description="Compassionate, evidence-based care for adults and families, at your own pace."
+			/>
+		</IntroFrame>
+	</LibrarySection>
+
+	<LibrarySection
+		title="Hero Load Spread"
+		type="Intro"
+		tag="Hero"
+		description="Three words reveal letter by letter with `textReveal()` in one centered line. The first then slides to the far left and the last to the far right, and the first rises to the top left corner while the last drops to the bottom right. The middle word never moves; the description and buttons fade in at the bottom left. It waits for the loader, so it pairs with any loader. Off with reduced motion (the final layout just shows). Pairs with the Links header."
+		props={heroLoadSpreadProps}
+	>
+		<IntroFrame path="/hero-load-spread">
+			<HeroLoadSpread
+				fullScreen={false}
+				words={['Build', 'something', 'lasting']}
+				size="clamp(40px, 8vw, 120px)"
+				description="Three words that spread to the corners."
 			/>
 		</IntroFrame>
 	</LibrarySection>

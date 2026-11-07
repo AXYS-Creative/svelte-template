@@ -20,10 +20,12 @@ const behaviors: Record<string, Behavior> = {
 		(await import('./scribble')).scribble({ curve: 'zigzag', thickness: 0.2, scroll, once: false }),
 	'scribble-circle': circle(1),
 	'scribble-circle-tight': circle(0.8),
-	'scribble-circle-wide': circle(1.2)
+	'scribble-circle-wide': circle(1.2),
+	'scribble-zigzag': async (scroll) =>
+		(await import('./scribble')).scribble({ curve: 'zigzag', thickness: 0.2, scroll, once: false })
 };
 
-/** Runs the behaviors that `richText` marks with `data-rich-text` on the spans inside this element. Pass the text so it runs again when the text changes. */
+/** Runs the behaviors (`scribble`, `scribble-circle` and `scribble-zigzag`) that `richText` marks with `data-rich-text` on the spans inside this element. Pass the text so it runs again when the text changes. */
 export function richTextBehaviors(text?: string): Attachment<HTMLElement> {
 	return (element) => {
 		void text;

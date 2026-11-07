@@ -13,6 +13,7 @@
 	import HeaderBasic, { type HeaderBasicProps } from '$lib/components/header-basic.svelte';
 	import HeaderAbsolute, { type HeaderAbsoluteProps } from '$lib/components/header-absolute.svelte';
 	import HeaderIsland, { type HeaderIslandProps } from '$lib/components/header-island.svelte';
+	import HeaderLinks, { type HeaderLinksProps } from '$lib/components/header-links.svelte';
 	import HeaderSimple, { type HeaderSimpleProps } from '$lib/components/header-simple.svelte';
 	import logo from '$lib/content/global/logo.json';
 	import social from '$lib/content/global/social-media.json';
@@ -23,6 +24,7 @@
 	import header from '$lib/content/global/header-simple.json';
 	import headerBasic from '$lib/content/global/header-basic.json';
 	import headerAbsolute from '$lib/content/global/header-absolute.json';
+	import headerLinks from '$lib/content/global/header-links.json';
 	import headerIsland from '$lib/content/global/header-island.json';
 	import navigation from '$lib/content/global/navigation.json';
 
@@ -54,6 +56,8 @@
 			{logo}
 			socialLinks={social.links}
 		/>
+	{:else if site.headerTemplate === 'links'}
+		<HeaderLinks {...navigation as HeaderLinksProps} {...headerLinks as HeaderLinksProps} />
 	{:else}
 		<HeaderSimple
 			{...navigation as HeaderSimpleProps}

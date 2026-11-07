@@ -96,42 +96,19 @@
 			"label": "Page - Home",
 			"files": [
 				{
-					"name": "hero_simple",
+					"name": "hero_load_spread",
 					"label": "Hero",
-					"file": "src/lib/content/page_home/hero-simple.json",
+					"file": "src/lib/content/page_home/hero-load-spread.json",
 					"preview_path": "#hero",
 					"fields": [
 						{
-							"name": "eyebrowText",
-							"label": "Eyebrow text",
-							"widget": "string",
-							"required": false
-						},
-						{
-							"name": "eyebrowIcon",
-							"label": "Eyebrow icon",
-							"widget": "image",
-							"required": false,
-							"hint": "An SVG icon; it takes the eyebrow color."
-						},
-						{
-							"name": "eyebrowDot",
-							"label": "Eyebrow status dot",
-							"widget": "select",
-							"options": [
-								{ "label": "None", "value": "none" },
-								{ "label": "Pulse", "value": "pulse" },
-								{ "label": "Sonar", "value": "sonar" }
-							],
-							"default": "none",
-							"required": false,
-							"hint": "A green dot before the eyebrow, such as for \"available for freelance\"."
-						},
-						{
-							"name": "title",
-							"label": "Title",
-							"widget": "string",
-							"hint": "Style words with [words]{.class}. Syntax and class list: axyscreative.com/tokens"
+							"name": "words",
+							"label": "Words",
+							"widget": "list",
+							"min": 3,
+							"max": 3,
+							"field": { "name": "word", "label": "Word", "widget": "string" },
+							"hint": "Exactly three words that read as one phrase. The middle one stays centered; the first and last move to the corners."
 						},
 						{
 							"name": "description",
@@ -228,23 +205,6 @@
 									]
 								}
 							]
-						},
-						{
-							"name": "layout",
-							"label": "Layout",
-							"widget": "select",
-							"options": ["column", "row"],
-							"default": "column",
-							"required": false,
-							"hint": "Row puts the description beside the title on wider screens."
-						},
-						{
-							"name": "align",
-							"label": "Alignment",
-							"widget": "select",
-							"options": ["start", "center"],
-							"default": "center",
-							"required": false
 						}
 					]
 				}
@@ -962,6 +922,45 @@
 									"hint": "Optional, e.g. menu."
 								}
 							]
+						}
+					]
+				},
+				{
+					"name": "header_links",
+					"label": "Header (links)",
+					"file": "src/lib/content/global/header-links.json",
+					"fields": [
+						{
+							"name": "position",
+							"label": "Position",
+							"widget": "select",
+							"options": [
+								{
+									"label": "Fixed (stays on screen)",
+									"value": "fixed"
+								},
+								{
+									"label": "Absolute (scrolls away with the page)",
+									"value": "absolute"
+								}
+							],
+							"default": "fixed"
+						},
+						{
+							"name": "blend",
+							"label": "Invert colors over the page",
+							"widget": "boolean",
+							"default": true,
+							"required": false,
+							"hint": "Keeps the links readable over any picture or color."
+						},
+						{
+							"name": "showSkipLink",
+							"label": "Show skip to content link",
+							"widget": "boolean",
+							"default": true,
+							"required": false,
+							"hint": "Accessibility. Leave on."
 						}
 					]
 				},
@@ -1996,6 +1995,10 @@
 								{
 									"label": "Basic",
 									"value": "basic"
+								},
+								{
+									"label": "Links",
+									"value": "links"
 								}
 							],
 							"default": "simple",

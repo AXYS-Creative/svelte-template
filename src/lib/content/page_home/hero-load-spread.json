@@ -1,0 +1,13 @@
+{
+	"words": ["Build", "something", "lasting"],
+	"description": "A fast, accessible starting point for sites that load with a little flair.",
+	"cta": {
+		"primary": {
+			"text": "View Style Guide",
+			"textDescription": "View the style guide",
+			"url": "/style-guide",
+			"newTab": false,
+			"iconEnd": ""
+		}
+	}
+}

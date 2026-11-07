@@ -1,12 +1,12 @@
 <script lang="ts">
 	import { onMount } from 'svelte';
-	import HeroSimple from '$lib/sections/hero-simple.svelte';
-	import hero from '$lib/content/page_home/hero-simple.json';
+	import HeroLoadSpread from '$lib/sections/hero-load-spread.svelte';
+	import hero from '$lib/content/page_home/hero-load-spread.json';
 	import { hasIdentityToken, loadIdentity } from '$lib/utils/identity';
 
 	const cta = {
 		primary: hero.cta.primary,
-		secondary: hero.cta.secondary.text ? hero.cta.secondary : undefined
+		secondary: undefined
 	};
 
 	// Netlify sends CMS invite and recovery links to the home page.
@@ -16,4 +16,9 @@
 	});
 </script>
 
-<HeroSimple id="hero" {...hero} {cta} />
+<HeroLoadSpread
+	id="hero"
+	words={hero.words as [string, string, string]}
+	description={hero.description}
+	{cta}
+/>

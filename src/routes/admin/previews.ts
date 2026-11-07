@@ -1,6 +1,7 @@
 import type { Component } from 'svelte';
 import globalCss from '../../styles/styles.scss?inline';
 import CarouselSpotlight from '$lib/sections/carousel-spotlight.svelte';
+import HeroLoadSpread from '$lib/sections/hero-load-spread.svelte';
 import HeroSimple from '$lib/sections/hero-simple.svelte';
 import { mountPreview, type PreviewHost } from './preview-host.svelte';
 
@@ -32,6 +33,10 @@ const previews: Record<string, Preview> = {
 				autoplay: false
 			};
 		}
+	},
+	hero_load_spread: {
+		component: HeroLoadSpread as unknown as Section,
+		props: (data) => ({ ...data, words: data.words ?? ['', '', ''], static: true })
 	},
 	hero_simple: {
 		component: HeroSimple as unknown as Section,

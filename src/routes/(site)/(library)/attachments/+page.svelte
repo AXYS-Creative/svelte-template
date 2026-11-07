@@ -1146,7 +1146,7 @@
 			{
 				name: 'curve',
 				description:
-					"For an underline: a preset, or a `cubic-bezier(x1, y1, x2, y2)`, or the four numbers. The smooth presets are `'swoosh'` (the default), `'wave'`, `'dip'` and `'flat'`. `'zigzag'` (straight, then one or two there-and-backs, then straight) and `'notch'` (a single V dip) are made of straight lines. `'random'` picks one of them for each element, so every one gets a different line. The line runs from the left edge to the right at mid-height; the two points pull it, and a `y` of 1 is the top and 0 the bottom."
+					"For an underline: a preset, or a `cubic-bezier(x1, y1, x2, y2)`, or the four numbers. The smooth presets are `'swoosh'` (the default), `'wave'`, `'dip'` and `'flat'`. `'zigzag'` (straight, then one or two shallow there-and-backs, then straight) and `'notch'` (a single V dip) are made of straight lines. `'random'` picks one of them for each element, so every one gets a different line. The line runs from the left edge to the right at mid-height; the two points pull it, and a `y` of 1 is the top and 0 the bottom."
 			},
 			{
 				name: 'hover',

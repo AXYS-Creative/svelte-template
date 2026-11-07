@@ -113,27 +113,8 @@
 	<h1 class="visually-hidden">{words[0]} {words[1].join(', ')} {words[2]}</h1>
 
 	<div class="words">
-		<div class="inner first">
+		<div class="inner">
 			<span class="word" aria-hidden="true" {@attach reveal(0)}>{words[0]}</span>
-			{#if description || cta?.primary?.text}
-				<div class="copy" class:shown={shown || isStatic}>
-					<SectionCopy
-						{description}
-						descriptionAttach={shown && !isStatic
-							? textReveal({
-									from: 'top',
-									duration: 0.6,
-									stagger: 0.03,
-									once: true,
-									trigger: section
-								})
-							: undefined}
-						{cta}
-						showEyebrow={false}
-						showTitle={false}
-					/>
-				</div>
-			{/if}
 		</div>
 
 		<div class="middle" class:sliding aria-hidden="true">
@@ -156,16 +137,39 @@
 			<span class="word" aria-hidden="true" {@attach reveal(2)}>{words[2]}</span>
 		</div>
 	</div>
+
+	{#if description || cta?.primary?.text}
+		<div class="inner copy-row">
+			<div class="copy" class:shown={shown || isStatic}>
+				<SectionCopy
+					{description}
+					descriptionAttach={shown && !isStatic
+						? textReveal({
+								from: 'top',
+								duration: 0.6,
+								stagger: 0.03,
+								once: true,
+								trigger: section
+							})
+						: undefined}
+					{cta}
+					showEyebrow={false}
+					showTitle={false}
+				/>
+			</div>
+		</div>
+	{/if}
 </section>
 
 <style lang="scss">
 	@use 'base/mixins';
 
 	.hero-load-marquee-slide {
+		position: relative;
 		display: flex;
 		flex-direction: column;
 		gap: 48px;
-		padding-block: var(--body-padding-double);
+		padding-block: var(--body-padding-double) calc(var(--body-padding-double) + 7rem);
 		overflow: clip;
 	}
 
@@ -247,22 +251,17 @@
 		}
 	}
 
-	.first {
-		display: flex;
-		flex-direction: column;
-		gap: 24px;
-
-		@include mixins.min-md {
-			flex-direction: row;
-			align-items: center;
-			justify-content: space-between;
-			gap: 48px;
-		}
+	.copy-row {
+		position: absolute;
+		bottom: var(--body-padding);
+		left: max(var(--body-padding), (100% - var(--content-width)) / 2);
+		width: calc(100% - var(--body-padding) * 2);
+		margin-inline: 0;
 	}
 
 	.copy {
 		width: 100%;
-		max-width: 320px;
+		max-width: 440px;
 
 		:global(.description) {
 			text-wrap: balance;

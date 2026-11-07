@@ -1011,6 +1011,7 @@ export const richTextProps = props(
 	],
 	['.scribble-circle-tight', 'The same loop drawn closer to the words (scale 0.8).'],
 	['.scribble-circle-wide', 'The same loop drawn farther from the words (scale 1.2).'],
+	['.scribble-zigzag', 'The same underline, always the shallow zigzag preset.'],
 	['.secondary', 'The secondary color.'],
 	['.stroke', 'An outline with no fill.'],
 	['.strong', 'Bold, as a `<strong>`.'],
@@ -1466,7 +1467,7 @@ export const heroImageDiagonalProps = props(
 export const heroLoadMarqueeSlideProps = props(
 	[
 		'...SectionCopy props',
-		'Takes `eyebrowText`, `eyebrowIcon`, `description`, `cta` and the rest of Section Copy (see the Style Guide). The eyebrow (if set) sits above the words; the description and buttons sit to the right of the first word, and under it below `md`. From `md` up the second and third rows are indented 96px and 192px. `title` is not used; the heading comes from `words`.'
+		'Takes `eyebrowText`, `eyebrowIcon`, `description`, `cta` and the rest of Section Copy (see the Style Guide). The eyebrow (if set) sits above the words; the description and buttons sit in the bottom left of the section, under the heading on small screens. From `md` up the second and third rows are indented 96px and 192px. `title` is not used; the heading comes from `words`.'
 	],
 	[
 		'words',
@@ -1491,6 +1492,31 @@ export const heroLoadMarqueeSlideProps = props(
 	[
 		'static',
 		'A boolean. Skips the reveal and the slide, for the CMS preview. Defaults to `false`.'
+	],
+	['class', 'A string of extra classes, such as `full` on a Library page.']
+);
+
+export const heroLoadSpreadProps = props(
+	[
+		'description',
+		'A string, the line at the bottom left. It and the buttons fade in once the words have landed.'
+	],
+	['cta', 'An object with a `primary` button and an optional `secondary` one, like Section Copy.'],
+	[
+		'words',
+		'An array of exactly three strings, left to right. Together they make the page heading. The middle word never moves; the first goes to the top left and the last to the bottom right. Required.'
+	],
+	[
+		'size',
+		'A string, any CSS length for the font size of the words. Defaults to `clamp(40px, 10vw, 180px)`.'
+	],
+	[
+		'fullScreen',
+		'A boolean. At least the height of the screen. Taller content still grows past it. Defaults to `true`.'
+	],
+	[
+		'static',
+		'A boolean. Skips the reveal and the movement and shows the final layout, for the CMS preview. Defaults to `false`.'
 	],
 	['class', 'A string of extra classes, such as `full` on a Library page.']
 );
